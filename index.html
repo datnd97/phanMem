@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Amount</p> <br />
+    <input type="text" id="amount" value=""><br />
+    <p>From Currency</p>
+    <select id="from" value="">
+        <option value="VN">VND</option>
+        <option value="US">USA</option>
+    </select><br />
+    <p>To Currency</p>
+    <select id="to" value="">
+        <option value="VN">VND</option>
+        <option value="US">USA</option>
+    </select><br />
+    <button onclick="chuyenDoi()">Chuyen Doi</button>
+    <p id="ketqua"></p>
+
+    <script>
+
+        function chuyenDoi() {
+            let amount = document.getElementById('amount').value;
+
+            let b = parseInt(amount);
+            let from = document.getElementById('from').value;
+
+            let so;
+
+            let rs = b * 23000;
+            let rs2 = b/23000;
+            let to = document.getElementById('to').value;
+            let c = parseInt(to);
+
+            if(from =="VN" && to =="VN")
+            {
+                so = amount;
+            }
+            else if (from =="VN" && to =="US"){
+                so = rs;
+            }
+            else if(from="US" && to=="VN")
+            {
+                so = rs2;
+            }
+            else
+            {
+                so = amount;
+            }
+            document.getElementById('ketqua').innerHTML=so;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
